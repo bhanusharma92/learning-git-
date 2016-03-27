@@ -1,0 +1,187 @@
+#configure username of git account
+git config --global user.name "Bhanu Sharma"
+
+#confiure email
+git config --global user.email "bhanusharma.a3@gmail.com"
+
+
+#See all of your settings
+git config --list
+
+#See one of your setting
+git config user.email
+
+#seek help
+git help
+git help commit
+
+#clear screen
+clear
+
+#check present working directory
+pwd
+
+#change directory to home
+cd ~
+
+#move backward or upward in directory structure
+cd ..
+
+#list the files and folders
+ls
+
+#go to the folder  you are working and initialize git using
+git init
+
+ #list hidden stuff
+ ls -la
+
+ #add all files
+ git add .
+
+ #commit - save the snapshot at particular time
+ git commit -m "This is our first commit"
+
+ #view commit history
+ git log
+
+ #view commit from single author
+ git log --author="Bhanu Sharma"
+
+#compare repository with working directory and show the result
+git status
+
+#Untracked files in git status command are not tracked by git
+#they are shown by red color
+#we first need to add them to staging area by
+git add second.txt 
+#second.txt is the untracked file we want to add to staging
+
+# working copy > staging area > repository
+
+#if we change some file in our working directory and type git status then a message shows up modified : filename
+
+#add modified file to staging area
+git add modified_filename
+
+#now we can commit
+git commit -m "modified the first file"
+
+#if multiple files are modified then git status
+#after that add multiple files to staging area
+git add .
+
+#and atfer that we have to commit
+git commit -m "this is how you can edit multiple files"
+
+git status#working directory is clean
+
+#how to view changes 
+git status#modiefied first.txt
+
+#to viw the difference or changes
+git diff #red color(original in repo) are deleted and green color(in working copy) are added
+#add the file to staging area 
+git add first.txt
+git commit -m "   "
+
+#when changes are made in more then one file
+#view are different
+
+#one thing should be noted that "diff" command compare the working copy and repositiory 
+
+#comparing staging area with repository
+git diff --staged
+
+#deleting files
+git rm filename #this command removes the file from working copy as well as repository
+
+git status#we deleted but it needed to be commited
+git commit -m "this is the point in time that we deleted  a file"
+
+#if we renamed the file explicitly and we write git status
+then git thinks that we deleted the original file and added the renamed file but they are the same file
+
+#if we do
+git add home.txt
+git rm  first.txt
+git status #now git figure out that we actually renamed the file 
+
+git commit -m "renamed the first.txt to home.txt"
+
+#really easy way
+git mv second.txt pudding.txt #similar to renaming
+
+#moving file to folder
+#git mv pudding.txt LoveNotes/patty.txt #this move the pudding.txt to folder LoveNotes
+
+git commit -m "renamed file pudding.txt to LoveNotes/patty.txt"
+
+#working with actual website
+cd Desktop/Dogs #Dogs is the folder 
+git status #not a git repository
+git int #initialize the empty git repository
+git status #all this red color files/folders are untracked
+git add . #add all the files and folder to git staging area
+git commit -m "this is the very first commit" #all files are in repository
+
+#commit directly to repository
+git status #two files are modifies
+git commit -am "directly from working to repo" #instead of adding to staging directly to commit
+# this -a commit all the things so if we want to change single file do not use this also 
+use only if you are editing simple thing and not in situations like moving, renaming etc
+
+#take files from repository and replace them with our working copy which are messed up somehow
+git checkout --index.html #take index.html from repo and make it working copy
+git status #working copy same as repository
+
+#removing file from staging area 
+git reset HEAD profile.html #this unstage file from staging area and bring it back to working copy
+
+#getting old version of repository
+say our commits are in order 
+first > second > third > second
+git checkout 01e7dba(git commit number) -- filename #take this file from this particular commit and add it to staging area and working copy
+
+git commit -am "Undoing mistakes"
+
+#github online publishing code
+add new repository -> rename it -> give description -> create repository
+
+#create connection between local git and online github there is a URL that we want to connect
+so we need to add a remote and give a nickname to this URL
+
+git remote add nick_name_of_url http://........................
+git remote
+o/p:nick_name_of_url
+
+#push - add file to the server
+#fetch - download thing from server
+
+git push -u nick_name_of_url master #take all files from commited area and make it online 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
