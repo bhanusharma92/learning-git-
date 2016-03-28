@@ -161,6 +161,13 @@ o/p:nick_name_of_url
 git push -u nick_name_of_url master #take all files from commited area and make it online 
 
 
+#when error popped that updates were rejected because remote contains work that you do not have locally.This was due to another repository pushing to same ref. You may want to first integrate remote change then solution to this problem is
+git remote add origin [//your github url]
+//pull those changes
+git pull origin master
+//now push your work to new repo
+git push origin master
+
 
 
 
